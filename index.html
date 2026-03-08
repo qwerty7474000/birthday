@@ -1,0 +1,214 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise 🎂</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Comic Sans MS', cursive;
+background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+text-align:center;
+overflow-x:hidden;
+}
+
+.page{
+display:none;
+padding:40px;
+min-height:100vh;
+}
+
+.active{
+display:block;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+color:#ff4f8b;
+font-size:45px;
+}
+
+button{
+padding:12px 28px;
+font-size:18px;
+background:#ff6fa5;
+color:white;
+border:none;
+border-radius:25px;
+margin:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff3f87;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+max-width:500px;
+margin:auto;
+}
+
+img{
+width:180px;
+border-radius:15px;
+margin:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+color:#ff5c9f;
+animation:float 6s linear infinite;
+font-size:20px;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7d7f7a9db0.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+
+<div id="page1" class="page active">
+<div class="card">
+<h1>🎂 HAPPY BIRTHDAY 🎂</h1>
+<p>I've been working on something special...<br>Are you ready to see it?</p>
+
+<button onclick="nextPage(2)">Yes 💖</button>
+<button onclick="noClick()">No 😜</button>
+</div>
+</div>
+
+<!-- PAGE 2 -->
+
+<div id="page2" class="page">
+<div class="card">
+<h1>🎉 Happy Birthday 🎉</h1>
+<p>Today is all about you! I hope your day is filled with love, smiles and cake 🍰</p>
+
+<button onclick="nextPage(3)">Next ➜</button>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+
+<div id="page3" class="page">
+<div class="card">
+<h2>💌 A Little Message</h2>
+
+<p>
+Roses are red 🌹<br>
+Sky is blue ☁️<br>
+Today is special<br>
+Because it's about you! 🎂
+</p>
+
+<button onclick="nextPage(4)">Next ➜</button>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+
+<div id="page4" class="page">
+<div class="card">
+<h2>📸 Our Memories</h2>
+
+<img src="file:///C:/Users/BALAJYOTHI/Downloads/WhatsApp%20Image%202026-03-06%20at%2010.20.25%20PM.jpeg">
+<img src="file:///C:/Users/BALAJYOTHI/Downloads/WhatsApp%20Image%202026-03-06%20at%2010.51.58%20PM.jpeg">
+<img src="file:///C:/Users/BALAJYOTHI/Downloads/WhatsApp%20Image%202026-03-06%20at%2010.56.13%20PM.jpeg">
+
+<br><br>
+
+<button onclick="nextPage(5)">Next ➜</button>
+</div>
+</div>
+
+<!-- PAGE 5 -->
+
+<div id="page5" class="page">
+<div class="card">
+
+<h2>💖 A Letter For You</h2>
+
+<p>
+I feel so lucky to have you in my life.<br><br>
+
+Thank you for every smile, every laugh,<br>
+and every beautiful memory we share.<br><br>
+
+I hope this birthday brings you as much happiness<br>
+as you bring into my life. 💕<br><br>
+
+Happy Birthday once again! 🎂
+</p>
+
+</div>
+</div>
+
+<script>
+
+function nextPage(num){
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById("page"+num).classList.add("active");
+}
+
+function noClick(){
+alert("You must press YES 😜");
+}
+
+function createHearts(){
+const hearts=document.getElementById("hearts");
+
+for(let i=0;i<20;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"%";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+
+hearts.appendChild(heart);
+}
+}
+
+createHearts();
+
+</script>
+
+</body>
+</html>
