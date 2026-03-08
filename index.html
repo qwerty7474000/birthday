@@ -98,8 +98,9 @@ font-size:20px;
 
 <div class="hearts" id="hearts"></div>
 
+<!-- Birthday Music -->
 <audio autoplay loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7d7f7a9db0.mp3" type="audio/mpeg">
+<source src="birthday-song.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1 -->
@@ -107,7 +108,7 @@ font-size:20px;
 <div id="page1" class="page active">
 <div class="card">
 <h1>🎂 HAPPY BIRTHDAY 🎂</h1>
-<p>I've been working on something special...<br>Are you ready to see it?</p>
+<p>We've been working on something special for our special LKG kid <br>Are you ready to see it?</p>
 
 <button onclick="nextPage(2)">Yes 💖</button>
 <button onclick="noClick()">No 😜</button>
@@ -169,13 +170,13 @@ Because it's about you! 🎂
 <h2>💖 A Letter For You</h2>
 
 <p>
-I feel so lucky to have you in my life.<br><br>
+We feel so lucky to have you in our life.<br><br>
 
 Thank you for every smile, every laugh,<br>
 and every beautiful memory we share.<br><br>
 
-I hope this birthday brings you as much happiness<br>
-as you bring into my life. 💕<br><br>
+We hope this birthday brings you as much happiness<br>
+as you bring into our life. 💕<br><br>
 
 Happy Birthday once again! 🎂
 </p>
@@ -189,9 +190,14 @@ function nextPage(num){
 document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
 document.getElementById("page"+num).classList.add("active");
 }
+function yesClicked(){
+document.getElementById("response").innerHTML =
+"Yayyy 💖 I knew you would like it! Happy Birthday once again 🎂✨";
+}
 
-function noClick(){
-alert("You must press YES 😜");
+function noClicked(){
+document.getElementById("response").innerHTML =
+"Chi! Yes click kar bey 😒";
 }
 
 function createHearts(){
